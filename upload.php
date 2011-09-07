@@ -1,5 +1,5 @@
 <?php
-$con = mysql_connect("localhost","root","password");
+$con = mysql_connect("","","");
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
@@ -24,14 +24,12 @@ if(!get_magic_quotes_gpc())
     $fileName = addslashes($fileName);
 }
 
-//include 'library/config.php';
-//include 'library/opendb.php';
 
 $query = "INSERT INTO upload (name, size, type, content ) ".
 "VALUES ('$fileName', '$fileSize', '$fileType', '$content')";
 
 mysql_query($query) or die('Error, query failed');
-//include 'library/closedb.php';
+
 
 echo "<br>File $fileName uploaded<br>";
 }
